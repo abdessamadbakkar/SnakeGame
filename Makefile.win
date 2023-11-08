@@ -1,0 +1,55 @@
+# Project: Snake
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o serpent.o Position.o Direction.o Fruit.o Playground.o menu.o StartGame.o GameOver.o Pause.o
+LINKOBJ  = main.o serpent.o Position.o Direction.o Fruit.o Playground.o menu.o StartGame.o GameOver.o Pause.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"C:/Users/abdas/OneDrive/Desktop/FS AGA/cppProject/SFML-2.4.2/lib" -mwindows -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/abdas/OneDrive/Desktop/FS AGA/cppProject/SFML-2.4.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/Users/abdas/OneDrive/Desktop/FS AGA/cppProject/SFML-2.4.2/include"
+BIN      = Snake.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+serpent.o: serpent.cpp
+	$(CPP) -c serpent.cpp -o serpent.o $(CXXFLAGS)
+
+Position.o: Position.cpp
+	$(CPP) -c Position.cpp -o Position.o $(CXXFLAGS)
+
+Direction.o: Direction.cpp
+	$(CPP) -c Direction.cpp -o Direction.o $(CXXFLAGS)
+
+Fruit.o: Fruit.cpp
+	$(CPP) -c Fruit.cpp -o Fruit.o $(CXXFLAGS)
+
+Playground.o: Playground.cpp
+	$(CPP) -c Playground.cpp -o Playground.o $(CXXFLAGS)
+
+menu.o: menu.cpp
+	$(CPP) -c menu.cpp -o menu.o $(CXXFLAGS)
+
+StartGame.o: StartGame.cpp
+	$(CPP) -c StartGame.cpp -o StartGame.o $(CXXFLAGS)
+
+GameOver.o: GameOver.cpp
+	$(CPP) -c GameOver.cpp -o GameOver.o $(CXXFLAGS)
+
+Pause.o: Pause.cpp
+	$(CPP) -c Pause.cpp -o Pause.o $(CXXFLAGS)
